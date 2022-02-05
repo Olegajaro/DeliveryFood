@@ -43,6 +43,7 @@ extension DishCell {
     private func setupViews() {
         dishImage.translatesAutoresizingMaskIntoConstraints = false
         dishImage.contentMode = .scaleAspectFill
+        dishImage.layer.cornerRadius = 20
         dishImage.clipsToBounds = true
         
         stackView.translatesAutoresizingMaskIntoConstraints = false

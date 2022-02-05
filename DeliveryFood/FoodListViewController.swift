@@ -23,10 +23,19 @@ class FoodListViewController: UIViewController {
     var vegiFoods: VegetarianDishes?
     var seaFoods: SeaFood?
     
+    private let viewModel: FoodListHeaderViewModel = FoodListHeaderViewModel(
+        viewModels: [
+            BannerCollectionViewCellViewModel(image: UIImage(named: "banner1")!),
+            BannerCollectionViewCellViewModel(image: UIImage(named: "banner2")!),
+            BannerCollectionViewCellViewModel(image: UIImage(named: "banner3")!)
+        ]
+    )
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setup()
+        setupTableViewHeader()
         fetchData()
     }
     
@@ -71,7 +80,8 @@ extension FoodListViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.register(DishCell.self, forCellReuseIdentifier: DishCell.reuseID)
+        tableView.register(DishCell.self,
+                           forCellReuseIdentifier: DishCell.reuseID)
         tableView.rowHeight = DishCell.rowHeight
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -92,10 +102,26 @@ extension FoodListViewController {
             )
         ])
     }
+    
+    private func setupTableViewHeader() {
+        let header = FoodListHeaderView(frame: CGRect(
+            x: 0, y: 0,
+            width: view.frame.size.width,
+            height: 150
+        ))
+        header.configure(with: viewModel)
+        
+        tableView.tableHeaderView = header
+    }
 }
 
 // MARK: - UITableViewDataSource
 extension FoodListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView,
+                   titleForHeaderInSection section: Int) -> String? {
+        "Dishes"
+    }
+    
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
         allDishes?.count ?? 0
@@ -112,10 +138,7 @@ extension FoodListViewController: UITableViewDataSource {
         if let dish = allDishes?[indexPath.row] {
             cell.configure(with: dish)
         }
-//        var content = cell.defaultContentConfiguration()
-//        content.text = allDishes?[indexPath.row].name
-//
-//        cell.contentConfiguration = content
+
         return cell
     }
 }
