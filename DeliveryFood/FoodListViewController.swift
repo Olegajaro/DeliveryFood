@@ -14,6 +14,7 @@ private let cellID = "Cell"
 class FoodListViewController: UIViewController {
     
     let tableView = UITableView()
+    var activityIndicator: UIActivityIndicatorView?
     
     let dataFetcherService = DataFetcherService()
     
@@ -38,6 +39,7 @@ class FoodListViewController: UIViewController {
         setup()
         setupTableViewHeader()
         fetchData()
+        activityIndicator = showActivityIndicator(in: view)
     }
     
     private func fetchData() {
@@ -70,6 +72,7 @@ class FoodListViewController: UIViewController {
             
             self.allDishes = pizzaData + vegiData + seaFoodData
             self.tableView.reloadData()
+            self.activityIndicator?.stopAnimating()
         }
     }
 }
