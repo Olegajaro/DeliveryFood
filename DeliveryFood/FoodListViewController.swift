@@ -16,10 +16,52 @@ class FoodListViewController: UIViewController {
     let tableView = UITableView()
     let numbers = [1, 2, 3, 4]
     
+    let dataFetcherService = DataFetcherService()
+    
+    var allDishes: [AllDishes]?
+    
+    var pizzas: Pizza?
+    var vegiFoods: VegetarianDishes?
+    var seaFoods: SeaFood?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setup()
+        fetchData()
+    }
+    
+    private func fetchData() {
+        let group = DispatchGroup()
+        
+        group.enter()
+        dataFetcherService.fetchPizzas { pizzas in
+            self.pizzas = pizzas
+            group.leave()
+        }
+        
+        group.enter()
+        dataFetcherService.fetchVegiDishes { vegiFoods in
+            self.vegiFoods = vegiFoods
+            group.leave()
+        }
+        
+        group.enter()
+        dataFetcherService.fetchSeaFoods { seaFoods in
+            self.seaFoods = seaFoods
+            group.leave()
+        }
+        
+        group.notify(queue: .main) {
+            guard
+                let pizzaData = self.pizzas?.data,
+                let vegiData = self.vegiFoods?.data,
+                let seaFoodData = self.seaFoods?.data
+            else { return }
+            self.allDishes = pizzaData + vegiData + seaFoodData
+            
+            self.tableView.reloadData()
+        }
     }
 }
 
@@ -56,7 +98,7 @@ extension FoodListViewController {
 extension FoodListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        numbers.count
+        allDishes?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView,
@@ -68,7 +110,7 @@ extension FoodListViewController: UITableViewDataSource {
         )
         
         var content = cell.defaultContentConfiguration()
-        content.text = numbers[indexPath.row].description
+        content.text = allDishes?[indexPath.row].name
         
         cell.contentConfiguration = content
         return cell

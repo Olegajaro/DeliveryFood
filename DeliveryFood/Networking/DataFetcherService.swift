@@ -20,21 +20,21 @@ class DataFetcherService {
         self.networkDataFetcher = networkDataFetcher
     }
     
-    func fetchPizzas(completion: @escaping ([Pizza]?) -> Void) {
+    func fetchPizzas(completion: @escaping (Pizza?) -> Void) {
         networkDataFetcher.fetchGenericJSONData(
             url: pizzasURL,
             response: completion
         )
     }
     
-    func fetchVegiDishes(completion: @escaping ([VegetarianDishes]?) -> Void) {
+    func fetchVegiDishes(completion: @escaping (VegetarianDishes?) -> Void) {
         networkDataFetcher.fetchGenericJSONData(
             url: vegiURL,
             response: completion
         )
     }
     
-    func fetchSeaFoods(completion: @escaping ([SeaFood]?) -> Void) {
+    func fetchSeaFoods(completion: @escaping (SeaFood?) -> Void) {
         networkDataFetcher.fetchGenericJSONData(
             url: seaFoodURL,
             response: completion

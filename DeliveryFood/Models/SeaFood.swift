@@ -11,11 +11,11 @@ import Foundation
 struct SeaFood: Codable {
     let status: Int
     let message: String
-    let data: [Datum]
+    let data: [SeaDatum]
 }
 
 // MARK: - Datum
-struct SeaDatum: Codable {
+struct SeaDatum: Codable, AllDishes {
     let id, name, datumDescription: String
     let image: String
     let calories: Int

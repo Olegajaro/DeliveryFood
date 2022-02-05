@@ -7,6 +7,13 @@
 
 import Foundation
 
+
+protocol AllDishes {
+    var name: String { get }
+    var image: String { get }
+    var datumDescription: String { get }
+}
+
 // MARK: - Pizza
 struct Pizza: Codable {
     let status: Int
@@ -15,7 +22,7 @@ struct Pizza: Codable {
 }
 
 // MARK: - Datum
-struct Datum: Codable {
+struct Datum: Codable, AllDishes {
     let id, name, datumDescription: String
     let image: String
     let calories: Int

@@ -11,11 +11,11 @@ import Foundation
 struct VegetarianDishes: Codable {
     let status: Int
     let message: String
-    let data: [Datum]
+    let data: [VegDatum]
 }
 
 // MARK: - Datum
-struct VegDatum: Codable {
+struct VegDatum: Codable, AllDishes {
     let id, name, datumDescription: String
     let image: String
     let calories: Int
@@ -29,5 +29,5 @@ struct VegDatum: Codable {
 }
 
 enum VegCategory: String, Codable {
-    case cat2 = "cat2"
+    case cat2 = "cat5"
 }
