@@ -14,6 +14,9 @@
 		1078889D27AE8FEE0034454C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1078889C27AE8FEE0034454C /* Constants.swift */; };
 		107888A027AEA1D40034454C /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1078889F27AEA1D40034454C /* FoodListViewController.swift */; };
 		107888A327AEA5A60034454C /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107888A227AEA5A60034454C /* UIViewController+Extensions.swift */; };
+		10B318CB27AEA9A600517567 /* Pizza.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B318CA27AEA9A600517567 /* Pizza.swift */; };
+		10B318CD27AEA9E100517567 /* VegetarianDishes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B318CC27AEA9E100517567 /* VegetarianDishes.swift */; };
+		10B318CF27AEAADC00517567 /* SeaFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B318CE27AEAADC00517567 /* SeaFood.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		1078889C27AE8FEE0034454C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1078889F27AEA1D40034454C /* FoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = "<group>"; };
 		107888A227AEA5A60034454C /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		10B318CA27AEA9A600517567 /* Pizza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pizza.swift; sourceTree = "<group>"; };
+		10B318CC27AEA9E100517567 /* VegetarianDishes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegetarianDishes.swift; sourceTree = "<group>"; };
+		10B318CE27AEAADC00517567 /* SeaFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeaFood.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +64,12 @@
 		1078888727AE8FE10034454C /* DeliveryFood */ = {
 			isa = PBXGroup;
 			children = (
-				1078889E27AEA00A0034454C /* Networking */,
 				1078888827AE8FE10034454C /* AppDelegate.swift */,
 				1078888C27AE8FE10034454C /* MainViewController.swift */,
 				1078889F27AEA1D40034454C /* FoodListViewController.swift */,
+				10B318C927AEA98E00517567 /* Models */,
+				1078889E27AEA00A0034454C /* Networking */,
+				107888A127AEA5950034454C /* Extensions */,
 				1078889127AE8FE10034454C /* Assets.xcassets */,
 				1078889327AE8FE10034454C /* LaunchScreen.storyboard */,
 				1078889627AE8FE10034454C /* Info.plist */,
@@ -73,7 +81,6 @@
 		1078889E27AEA00A0034454C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				107888A127AEA5950034454C /* Extensions */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -84,6 +91,16 @@
 				107888A227AEA5A60034454C /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		10B318C927AEA98E00517567 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				10B318CA27AEA9A600517567 /* Pizza.swift */,
+				10B318CC27AEA9E100517567 /* VegetarianDishes.swift */,
+				10B318CE27AEAADC00517567 /* SeaFood.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,8 +173,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10B318CD27AEA9E100517567 /* VegetarianDishes.swift in Sources */,
+				10B318CF27AEAADC00517567 /* SeaFood.swift in Sources */,
 				1078888D27AE8FE10034454C /* MainViewController.swift in Sources */,
 				1078888927AE8FE10034454C /* AppDelegate.swift in Sources */,
+				10B318CB27AEA9A600517567 /* Pizza.swift in Sources */,
 				107888A327AEA5A60034454C /* UIViewController+Extensions.swift in Sources */,
 				107888A027AEA1D40034454C /* FoodListViewController.swift in Sources */,
 				1078889D27AE8FEE0034454C /* Constants.swift in Sources */,
