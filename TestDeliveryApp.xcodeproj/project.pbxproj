@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		1078888927AE8FE10034454C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1078888827AE8FE10034454C /* AppDelegate.swift */; };
-		1078888B27AE8FE10034454C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1078888A27AE8FE10034454C /* SceneDelegate.swift */; };
-		1078888D27AE8FE10034454C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1078888C27AE8FE10034454C /* ViewController.swift */; };
-		1078889027AE8FE10034454C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1078888E27AE8FE10034454C /* Main.storyboard */; };
+		1078888D27AE8FE10034454C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1078888C27AE8FE10034454C /* MainViewController.swift */; };
 		1078889227AE8FE10034454C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1078889127AE8FE10034454C /* Assets.xcassets */; };
 		1078889527AE8FE10034454C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1078889327AE8FE10034454C /* LaunchScreen.storyboard */; };
+		1078889D27AE8FEE0034454C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1078889C27AE8FEE0034454C /* Constants.swift */; };
+		107888A027AEA1D40034454C /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1078889F27AEA1D40034454C /* FoodListViewController.swift */; };
+		107888A327AEA5A60034454C /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107888A227AEA5A60034454C /* UIViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1078888527AE8FE10034454C /* DeliveryFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1078888527AE8FE10034454C /* TestDeliveryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestDeliveryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1078888827AE8FE10034454C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1078888A27AE8FE10034454C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1078888C27AE8FE10034454C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1078888F27AE8FE10034454C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1078888C27AE8FE10034454C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1078889127AE8FE10034454C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1078889427AE8FE10034454C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1078889627AE8FE10034454C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1078889C27AE8FEE0034454C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1078889F27AEA1D40034454C /* FoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = "<group>"; };
+		107888A227AEA5A60034454C /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +50,7 @@
 		1078888627AE8FE10034454C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1078888527AE8FE10034454C /* DeliveryFood.app */,
+				1078888527AE8FE10034454C /* TestDeliveryApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,23 +58,40 @@
 		1078888727AE8FE10034454C /* DeliveryFood */ = {
 			isa = PBXGroup;
 			children = (
+				1078889E27AEA00A0034454C /* Networking */,
 				1078888827AE8FE10034454C /* AppDelegate.swift */,
-				1078888A27AE8FE10034454C /* SceneDelegate.swift */,
-				1078888C27AE8FE10034454C /* ViewController.swift */,
-				1078888E27AE8FE10034454C /* Main.storyboard */,
+				1078888C27AE8FE10034454C /* MainViewController.swift */,
+				1078889F27AEA1D40034454C /* FoodListViewController.swift */,
 				1078889127AE8FE10034454C /* Assets.xcassets */,
 				1078889327AE8FE10034454C /* LaunchScreen.storyboard */,
 				1078889627AE8FE10034454C /* Info.plist */,
+				1078889C27AE8FEE0034454C /* Constants.swift */,
 			);
 			path = DeliveryFood;
+			sourceTree = "<group>";
+		};
+		1078889E27AEA00A0034454C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				107888A127AEA5950034454C /* Extensions */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		107888A127AEA5950034454C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				107888A227AEA5A60034454C /* UIViewController+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1078888427AE8FE10034454C /* DeliveryFood */ = {
+		1078888427AE8FE10034454C /* TestDeliveryApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1078889927AE8FE10034454C /* Build configuration list for PBXNativeTarget "DeliveryFood" */;
+			buildConfigurationList = 1078889927AE8FE10034454C /* Build configuration list for PBXNativeTarget "TestDeliveryApp" */;
 			buildPhases = (
 				1078888127AE8FE10034454C /* Sources */,
 				1078888227AE8FE10034454C /* Frameworks */,
@@ -82,9 +101,9 @@
 			);
 			dependencies = (
 			);
-			name = DeliveryFood;
+			name = TestDeliveryApp;
 			productName = DeliveryFood;
-			productReference = 1078888527AE8FE10034454C /* DeliveryFood.app */;
+			productReference = 1078888527AE8FE10034454C /* TestDeliveryApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +121,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1078888027AE8FE10034454C /* Build configuration list for PBXProject "DeliveryFood" */;
+			buildConfigurationList = 1078888027AE8FE10034454C /* Build configuration list for PBXProject "TestDeliveryApp" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +134,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1078888427AE8FE10034454C /* DeliveryFood */,
+				1078888427AE8FE10034454C /* TestDeliveryApp */,
 			);
 		};
 /* End PBXProject section */
@@ -127,7 +146,6 @@
 			files = (
 				1078889527AE8FE10034454C /* LaunchScreen.storyboard in Resources */,
 				1078889227AE8FE10034454C /* Assets.xcassets in Resources */,
-				1078889027AE8FE10034454C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +156,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1078888D27AE8FE10034454C /* ViewController.swift in Sources */,
+				1078888D27AE8FE10034454C /* MainViewController.swift in Sources */,
 				1078888927AE8FE10034454C /* AppDelegate.swift in Sources */,
-				1078888B27AE8FE10034454C /* SceneDelegate.swift in Sources */,
+				107888A327AEA5A60034454C /* UIViewController+Extensions.swift in Sources */,
+				107888A027AEA1D40034454C /* FoodListViewController.swift in Sources */,
+				1078889D27AE8FEE0034454C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1078888E27AE8FE10034454C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1078888F27AE8FE10034454C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1078889327AE8FE10034454C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -287,13 +299,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DeliveryFood/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -303,6 +316,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.myapps.DeliveryFood;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -314,13 +328,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DeliveryFood/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -330,6 +345,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.myapps.DeliveryFood;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -339,7 +355,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1078888027AE8FE10034454C /* Build configuration list for PBXProject "DeliveryFood" */ = {
+		1078888027AE8FE10034454C /* Build configuration list for PBXProject "TestDeliveryApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1078889727AE8FE10034454C /* Debug */,
@@ -348,7 +364,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1078889927AE8FE10034454C /* Build configuration list for PBXNativeTarget "DeliveryFood" */ = {
+		1078889927AE8FE10034454C /* Build configuration list for PBXNativeTarget "TestDeliveryApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1078889A27AE8FE10034454C /* Debug */,
