@@ -17,7 +17,7 @@ struct SeaFood: Codable {
 // MARK: - Datum
 struct SeaDatum: Codable, AllDishes {
     let id, name, datumDescription: String
-    let image: String
+    let image: URL
     let calories: Int
     let category: SeaCategory
 

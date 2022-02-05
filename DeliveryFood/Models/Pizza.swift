@@ -10,7 +10,7 @@ import Foundation
 
 protocol AllDishes {
     var name: String { get }
-    var image: String { get }
+    var image: URL { get }
     var datumDescription: String { get }
 }
 
@@ -24,7 +24,7 @@ struct Pizza: Codable {
 // MARK: - Datum
 struct Datum: Codable, AllDishes {
     let id, name, datumDescription: String
-    let image: String
+    let image: URL
     let calories: Int
     let category: Category
 

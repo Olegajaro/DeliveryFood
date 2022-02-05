@@ -14,7 +14,6 @@ private let cellID = "Cell"
 class FoodListViewController: UIViewController {
     
     let tableView = UITableView()
-    let numbers = [1, 2, 3, 4]
     
     let dataFetcherService = DataFetcherService()
     
@@ -58,8 +57,8 @@ class FoodListViewController: UIViewController {
                 let vegiData = self.vegiFoods?.data,
                 let seaFoodData = self.seaFoods?.data
             else { return }
-            self.allDishes = pizzaData + vegiData + seaFoodData
             
+            self.allDishes = pizzaData + vegiData + seaFoodData
             self.tableView.reloadData()
         }
     }
@@ -72,7 +71,8 @@ extension FoodListViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        tableView.register(DishCell.self, forCellReuseIdentifier: DishCell.reuseID)
+        tableView.rowHeight = DishCell.rowHeight
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
@@ -105,14 +105,17 @@ extension FoodListViewController: UITableViewDataSource {
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: cellID,
+            withIdentifier: DishCell.reuseID,
             for: indexPath
-        )
+        ) as! DishCell
         
-        var content = cell.defaultContentConfiguration()
-        content.text = allDishes?[indexPath.row].name
-        
-        cell.contentConfiguration = content
+        if let dish = allDishes?[indexPath.row] {
+            cell.configure(with: dish)
+        }
+//        var content = cell.defaultContentConfiguration()
+//        content.text = allDishes?[indexPath.row].name
+//
+//        cell.contentConfiguration = content
         return cell
     }
 }

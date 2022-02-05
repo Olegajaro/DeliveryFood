@@ -20,6 +20,7 @@
 		10B318D927AEAD4300517567 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B318D827AEAD4300517567 /* NetworkDataFetcher.swift */; };
 		10B318DB27AEAD5F00517567 /* DataFetcherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B318DA27AEAD5F00517567 /* DataFetcherService.swift */; };
 		10B318DD27AEAEBC00517567 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B318DC27AEAEBC00517567 /* ImageManager.swift */; };
+		10B318DF27AED62C00517567 /* DishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B318DE27AED62C00517567 /* DishCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		10B318D827AEAD4300517567 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		10B318DA27AEAD5F00517567 /* DataFetcherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcherService.swift; sourceTree = "<group>"; };
 		10B318DC27AEAEBC00517567 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		10B318DE27AED62C00517567 /* DishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				1078888827AE8FE10034454C /* AppDelegate.swift */,
 				1078888C27AE8FE10034454C /* MainViewController.swift */,
 				1078889F27AEA1D40034454C /* FoodListViewController.swift */,
+				10B318DE27AED62C00517567 /* DishCell.swift */,
 				10B318C927AEA98E00517567 /* Models */,
 				1078889E27AEA00A0034454C /* Networking */,
 				107888A127AEA5950034454C /* Extensions */,
@@ -183,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10B318CD27AEA9E100517567 /* VegetarianDishes.swift in Sources */,
+				10B318DF27AED62C00517567 /* DishCell.swift in Sources */,
 				10B318CF27AEAADC00517567 /* SeaFood.swift in Sources */,
 				10B318D727AEAD2700517567 /* NetworkService.swift in Sources */,
 				1078888D27AE8FE10034454C /* MainViewController.swift in Sources */,
