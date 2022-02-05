@@ -34,6 +34,7 @@ class FoodListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupNavigationItem()
         setup()
         setupTableViewHeader()
         fetchData()
@@ -112,6 +113,12 @@ extension FoodListViewController {
         header.configure(with: viewModel)
         
         tableView.tableHeaderView = header
+    }
+    
+    private func setupNavigationItem() {
+        let barButtonItem = UIBarButtonItem(title: "Moscow  ⬇️")
+        barButtonItem.tintColor = .black
+        navigationItem.leftBarButtonItem = barButtonItem
     }
 }
 
