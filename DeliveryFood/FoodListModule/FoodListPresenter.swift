@@ -12,7 +12,6 @@ protocol FoodListViewProtocol: AnyObject {
 }
 
 protocol FoodListPresenterProtocol: AnyObject {
-    var allDishes: [Dish]? { get set }
     init(view: FoodListViewController, dataFetcherService: DataFetcherService)
     func fetchData()
     func numberOfRows() -> Int
@@ -25,7 +24,7 @@ class FoodListPresenter: FoodListPresenterProtocol {
     weak var view: FoodListViewController?
     let dataFetcherService: DataFetcherService!
     
-    var allDishes: [Dish]?
+    private var allDishes: [Dish]?
     
     private var pizzas: Pizza?
     private var vegiFoods: VegetarianDish?
