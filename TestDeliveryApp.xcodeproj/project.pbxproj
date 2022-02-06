@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		104D6A4527AFB1E800DBFB9C /* FoodListSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104D6A4427AFB1E800DBFB9C /* FoodListSectionHeader.swift */; };
 		1078888927AE8FE10034454C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1078888827AE8FE10034454C /* AppDelegate.swift */; };
 		1078888D27AE8FE10034454C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1078888C27AE8FE10034454C /* MainViewController.swift */; };
 		1078889227AE8FE10034454C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1078889127AE8FE10034454C /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		104D6A4427AFB1E800DBFB9C /* FoodListSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListSectionHeader.swift; sourceTree = "<group>"; };
 		1078888527AE8FE10034454C /* TestDeliveryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestDeliveryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1078888827AE8FE10034454C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1078888C27AE8FE10034454C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				10B318DE27AED62C00517567 /* DishCell.swift */,
 				10B318E027AEE10B00517567 /* FoodListHeaderView.swift */,
 				10B318E227AEE7F000517567 /* BannerCollectionViewCell.swift */,
+				104D6A4427AFB1E800DBFB9C /* FoodListSectionHeader.swift */,
 				10B318C927AEA98E00517567 /* Models */,
 				1078889E27AEA00A0034454C /* Networking */,
 				107888A127AEA5950034454C /* Extensions */,
@@ -201,6 +204,7 @@
 				10B318DB27AEAD5F00517567 /* DataFetcherService.swift in Sources */,
 				10B318CB27AEA9A600517567 /* Pizza.swift in Sources */,
 				10B318D927AEAD4300517567 /* NetworkDataFetcher.swift in Sources */,
+				104D6A4527AFB1E800DBFB9C /* FoodListSectionHeader.swift in Sources */,
 				10B318E327AEE7F000517567 /* BannerCollectionViewCell.swift in Sources */,
 				107888A327AEA5A60034454C /* UIViewController+Extensions.swift in Sources */,
 				10B318DD27AEAEBC00517567 /* ImageManager.swift in Sources */,

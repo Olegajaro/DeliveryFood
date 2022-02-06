@@ -86,6 +86,8 @@ extension FoodListViewController {
         
         tableView.register(DishCell.self,
                            forCellReuseIdentifier: DishCell.reuseID)
+        tableView.register(FoodListSectionHeader.self,
+                           forHeaderFooterViewReuseIdentifier: FoodListSectionHeader.identifier)
         tableView.rowHeight = DishCell.rowHeight
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -128,8 +130,16 @@ extension FoodListViewController {
 // MARK: - UITableViewDataSource
 extension FoodListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
-                   titleForHeaderInSection section: Int) -> String? {
-        "Dishes"
+                   viewForHeaderInSection section: Int) -> UIView? {
+        let headerSection = tableView.dequeueReusableHeaderFooterView(
+            withIdentifier: FoodListSectionHeader.identifier
+        ) as? FoodListSectionHeader
+        
+        return headerSection
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        60
     }
     
     func tableView(_ tableView: UITableView,
