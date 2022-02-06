@@ -7,6 +7,11 @@
 
 import UIKit
 
+let appColor: UIColor = UIColor(red: 242/255,
+                                 green: 247/255,
+                                 blue: 241/255,
+                                 alpha: 1)
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
@@ -18,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.backgroundColor = .systemBackground
+        window?.backgroundColor = appColor
         window?.rootViewController = MainViewController()
         
         return true

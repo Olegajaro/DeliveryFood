@@ -29,7 +29,7 @@ class FoodListHeaderView: UIView {
             BannerCollectionViewCell.self,
             forCellWithReuseIdentifier: BannerCollectionViewCell.identifier
         )
-        collectionView.backgroundColor = .systemBackground
+        collectionView.backgroundColor = appColor
         collectionView.showsHorizontalScrollIndicator = false
         
         return collectionView

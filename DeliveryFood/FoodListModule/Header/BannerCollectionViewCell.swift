@@ -21,7 +21,7 @@ class BannerCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        contentView.backgroundColor = .systemBackground
+        contentView.backgroundColor = appColor
         addSubview(imageView)
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 30

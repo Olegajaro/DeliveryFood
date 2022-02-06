@@ -44,6 +44,8 @@ class FoodListSectionHeader: UITableViewHeaderFooterView {
 extension FoodListSectionHeader {
     // MARK: - SetupViews()
     private func setupViews() {
+        contentView.backgroundColor = appColor
+        
         stackView.addArrangedSubview(pizzaCategoryButton)
         stackView.addArrangedSubview(vegiCategoryButton)
         stackView.addArrangedSubview(seaFoodCategoryButton)

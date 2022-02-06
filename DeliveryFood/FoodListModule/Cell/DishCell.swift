@@ -16,6 +16,14 @@ class DishCell: UITableViewCell {
     let dishNameLabel = UILabel()
     let dishDescriptionLabel = UILabel()
     
+    var viewModel: DishCellViewModelProtocol! {
+        didSet {
+            dishImage.sd_setImage(with: viewModel.dishImageURL)
+            dishNameLabel.text = viewModel.dishName
+            dishDescriptionLabel.text = viewModel.dishDescription
+        }
+    }
+    
     static let reuseID = "DishCell"
     static let rowHeight: CGFloat = 250
     
@@ -34,13 +42,6 @@ class DishCell: UITableViewCell {
         super.layoutSubviews()
         
         layout()
-    }
-    
-    // MARK: - Configure method
-    func configure(with dish: Dish) {
-        dishImage.sd_setImage(with: dish.image)
-        dishNameLabel.text = dish.name
-        dishDescriptionLabel.text = dish.datumDescription
     }
 }
 

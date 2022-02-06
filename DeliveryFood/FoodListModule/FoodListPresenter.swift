@@ -16,7 +16,9 @@ protocol FoodListPresenterProtocol: AnyObject {
     init(view: FoodListViewController, dataFetcherService: DataFetcherService)
     func fetchData()
     func numberOfRows() -> Int
-    func setDishForCell(with indexPath: IndexPath) -> Dish?
+    func dishCellViewModel(
+        forIndexPath indexPath: IndexPath
+    ) -> DishCellViewModelProtocol?
 }
 
 class FoodListPresenter: FoodListPresenterProtocol {
@@ -52,8 +54,15 @@ class FoodListPresenter: FoodListPresenterProtocol {
         allDishes?.count ?? 0
     }
     
-    func setDishForCell(with indexPath: IndexPath) -> Dish? {
-        return allDishes?[indexPath.row]
+    
+    func dishCellViewModel(
+        forIndexPath indexPath: IndexPath
+    ) -> DishCellViewModelProtocol? {
+        if let dish = allDishes?[indexPath.row] {
+            return DishCellViewModel(dish: dish)
+        }
+        
+        return nil
     }
     
     private func fetchPizzas(group: DispatchGroup) {

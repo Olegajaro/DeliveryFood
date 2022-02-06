@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		102B0ED527B0433B0088236E /* DishCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102B0ED427B0433B0088236E /* DishCellViewModel.swift */; };
 		104D6A4527AFB1E800DBFB9C /* FoodListSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104D6A4427AFB1E800DBFB9C /* FoodListSectionHeader.swift */; };
 		104D6A4727AFC77A00DBFB9C /* FoodListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104D6A4627AFC77A00DBFB9C /* FoodListPresenter.swift */; };
 		104D6A4927AFCBCA00DBFB9C /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104D6A4827AFCBCA00DBFB9C /* Assembly.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		102B0ED427B0433B0088236E /* DishCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCellViewModel.swift; sourceTree = "<group>"; };
 		104D6A4427AFB1E800DBFB9C /* FoodListSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListSectionHeader.swift; sourceTree = "<group>"; };
 		104D6A4627AFC77A00DBFB9C /* FoodListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListPresenter.swift; sourceTree = "<group>"; };
 		104D6A4827AFCBCA00DBFB9C /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				10B318DE27AED62C00517567 /* DishCell.swift */,
+				102B0ED427B0433B0088236E /* DishCellViewModel.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				10B318DF27AED62C00517567 /* DishCell.swift in Sources */,
 				10B318E127AEE10B00517567 /* FoodListHeaderView.swift in Sources */,
 				10B318CF27AEAADC00517567 /* SeaFood.swift in Sources */,
+				102B0ED527B0433B0088236E /* DishCellViewModel.swift in Sources */,
 				10B318D727AEAD2700517567 /* NetworkService.swift in Sources */,
 				1078888D27AE8FE10034454C /* MainViewController.swift in Sources */,
 				1078888927AE8FE10034454C /* AppDelegate.swift in Sources */,

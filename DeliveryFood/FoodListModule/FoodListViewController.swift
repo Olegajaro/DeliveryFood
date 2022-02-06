@@ -39,8 +39,8 @@ class FoodListViewController: UIViewController {
 
 // MARK: - Setup Table View
 extension FoodListViewController {
-    private func setupTableView() {
-        tableView.backgroundColor = .systemBackground
+    private func setupTableView() {        
+        tableView.backgroundColor = appColor
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -53,6 +53,7 @@ extension FoodListViewController {
             forHeaderFooterViewReuseIdentifier: FoodListSectionHeader.identifier
         )
         tableView.rowHeight = DishCell.rowHeight
+        tableView.sectionHeaderTopPadding = 0
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
@@ -123,9 +124,7 @@ extension FoodListViewController: UITableViewDataSource {
             for: indexPath
         ) as! DishCell
         
-        if let dish = presenter.setDishForCell(with: indexPath) {
-            cell.configure(with: dish)
-        }
+        cell.viewModel = presenter.dishCellViewModel(forIndexPath: indexPath)
         
         return cell
     }
@@ -142,7 +141,9 @@ extension FoodListViewController: UITableViewDelegate {
 
 // MARK: - FoodListSectionHeaderDelegate
 extension FoodListViewController: FoodListSectionHeaderDelegate {
-    func handleActionForPizzaCategoryButton(for controller: FoodListViewController) {
+    func handleActionForPizzaCategoryButton(
+        for controller: FoodListViewController
+    ) {
         let tableView = controller.tableView
         
         print("DEBUG: \(tableView.numberOfRows(inSection: tableView.numberOfSections - 1))")

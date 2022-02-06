@@ -33,7 +33,7 @@ class MainViewController: UITabBarController {
         basketVC.setTabBarImage(imageName: "arrow.up.bin.fill", title: "Basket")
         
         let foodListNC = UINavigationController(rootViewController: foodListVC)
-        foodListNC.navigationBar.barTintColor = .systemBackground
+        foodListNC.navigationBar.barTintColor = appColor
         hideNavigationBarLine(foodListNC.navigationBar)
         
         let tabBarList = [foodListNC, contactsVC, profileVC, basketVC]
