@@ -13,13 +13,17 @@ struct FoodListHeaderViewModel {
 
 class FoodListHeaderView: UIView {
     
+    // MARK: - Properties
     let containerView = UIView()
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
         
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        let collectionView = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: layout
+        )
         collectionView.register(
             BannerCollectionViewCell.self,
             forCellWithReuseIdentifier: BannerCollectionViewCell.identifier
@@ -32,6 +36,7 @@ class FoodListHeaderView: UIView {
     
     private var viewModels: [BannerCollectionViewCellViewModel] = []
     
+    // MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -48,6 +53,7 @@ class FoodListHeaderView: UIView {
     }
 }
 
+// MARK: - SetupViews, Layout
 extension FoodListHeaderView {
     private func setupViews() {
         backgroundColor = .systemBackground
@@ -59,22 +65,28 @@ extension FoodListHeaderView {
     
     private func layout() {
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             widthAnchor.constraint(equalTo: containerView.widthAnchor),
             centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            heightAnchor.constraint(equalTo: containerView.heightAnchor),
+            heightAnchor.constraint(equalTo: containerView.heightAnchor)
         ])
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            containerView.widthAnchor.constraint(equalTo: collectionView.widthAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            collectionView.heightAnchor.constraint(equalTo: containerView.heightAnchor)
+            containerView.widthAnchor.constraint(
+                equalTo: collectionView.widthAnchor
+            ),
+            collectionView.bottomAnchor.constraint(
+                equalTo: containerView.bottomAnchor
+            ),
+            collectionView.heightAnchor.constraint(
+                equalTo: containerView.heightAnchor
+            )
         ])
     }
 }
 
+// MARK: - UICollectionViewDataSource
 extension FoodListHeaderView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
@@ -95,6 +107,7 @@ extension FoodListHeaderView: UICollectionViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
 extension FoodListHeaderView: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,

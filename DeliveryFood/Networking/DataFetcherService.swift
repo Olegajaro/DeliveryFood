@@ -27,7 +27,7 @@ class DataFetcherService {
         )
     }
     
-    func fetchVegiDishes(completion: @escaping (VegetarianDishes?) -> Void) {
+    func fetchVegiDishes(completion: @escaping (VegetarianDish?) -> Void) {
         networkDataFetcher.fetchGenericJSONData(
             url: vegiURL,
             response: completion

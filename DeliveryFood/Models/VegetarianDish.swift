@@ -8,14 +8,14 @@
 import Foundation
 
 // MARK: - VegetarianDishes
-struct VegetarianDishes: Codable {
+struct VegetarianDish: Codable {
     let status: Int
     let message: String
     let data: [VegDatum]
 }
 
 // MARK: - Datum
-struct VegDatum: Codable, AllDishes {
+struct VegDatum: Codable, Dish {
     let id, name, datumDescription: String
     let image: URL
     let calories: Int

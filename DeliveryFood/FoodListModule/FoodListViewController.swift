@@ -11,11 +11,13 @@ import UIKit
 
 class FoodListViewController: UIViewController {
     
+    // MARK: - Propeties
     let tableView = UITableView()
     var activityIndicator: UIActivityIndicatorView?
     
     var presenter: FoodListPresenterProtocol!
         
+    // Set image for banners
     private let viewModel: FoodListHeaderViewModel = FoodListHeaderViewModel(
         viewModels: [
             BannerCollectionViewCellViewModel(image: UIImage(named: "banner1")!),
@@ -24,6 +26,7 @@ class FoodListViewController: UIViewController {
         ]
     )
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -130,6 +133,7 @@ extension FoodListViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - FoodListViewProtocol
 extension FoodListViewController: FoodListViewProtocol {
     func success() {
         tableView.reloadData()
@@ -137,6 +141,7 @@ extension FoodListViewController: FoodListViewProtocol {
     }
 }
 
+// MARK: - FoodListSectionHeaderDelegate
 extension FoodListViewController: FoodListSectionHeaderDelegate {
     func handleActionForPizzaCategoryButton(for controller: FoodListViewController) {
         let selectedRows = controller.tableView.indexPathsForSelectedRows

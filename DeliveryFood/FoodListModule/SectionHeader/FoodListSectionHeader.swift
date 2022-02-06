@@ -12,6 +12,7 @@ protocol FoodListSectionHeaderDelegate: AnyObject {
 }
 
 class FoodListSectionHeader: UITableViewHeaderFooterView {
+    // MARK: - Properties
     static let identifier = "FoodListSectionHeader"
     
     let stackView = UIStackView()
@@ -22,6 +23,7 @@ class FoodListSectionHeader: UITableViewHeaderFooterView {
     private let buttonHeight: CGFloat = 30
     weak var delegate: FoodListSectionHeaderDelegate?
     
+    // MARK: - Lifecycle
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         
@@ -35,31 +37,12 @@ class FoodListSectionHeader: UITableViewHeaderFooterView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        NSLayoutConstraint.activate([
-            stackView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            stackView.leadingAnchor.constraint(
-                equalToSystemSpacingAfter: leadingAnchor,
-                multiplier: 2
-            ),
-            trailingAnchor.constraint(
-                equalToSystemSpacingAfter: stackView.trailingAnchor,
-                multiplier: 2
-            )
-        ])
-        
-        NSLayoutConstraint.activate([
-            pizzaCategoryButton.heightAnchor.constraint(
-                equalToConstant: buttonHeight
-            ),
-            vegiCategoryButton.heightAnchor.constraint(
-                equalToConstant: buttonHeight
-            ),
-            seaFoodCategoryButton.heightAnchor.constraint(
-                equalToConstant: buttonHeight
-            )
-        ])
+        layout()
     }
-    
+}
+
+extension FoodListSectionHeader {
+    // MARK: - SetupViews()
     private func setupViews() {
         stackView.addArrangedSubview(pizzaCategoryButton)
         stackView.addArrangedSubview(vegiCategoryButton)
@@ -95,8 +78,38 @@ class FoodListSectionHeader: UITableViewHeaderFooterView {
         seaFoodCategoryButton.backgroundColor = .lightGray
         seaFoodCategoryButton.layer.cornerRadius = buttonHeight / 2
     }
+    
+    // MARK: - Layout
+    private func layout() {
+        // stackView constraints
+        NSLayoutConstraint.activate([
+            stackView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            stackView.leadingAnchor.constraint(
+                equalToSystemSpacingAfter: leadingAnchor,
+                multiplier: 2
+            ),
+            trailingAnchor.constraint(
+                equalToSystemSpacingAfter: stackView.trailingAnchor,
+                multiplier: 2
+            )
+        ])
+        
+        // buttons constaints
+        NSLayoutConstraint.activate([
+            pizzaCategoryButton.heightAnchor.constraint(
+                equalToConstant: buttonHeight
+            ),
+            vegiCategoryButton.heightAnchor.constraint(
+                equalToConstant: buttonHeight
+            ),
+            seaFoodCategoryButton.heightAnchor.constraint(
+                equalToConstant: buttonHeight
+            )
+        ])
+    }
 }
 
+// MARK: - Actions
 extension FoodListSectionHeader {
     @objc func didTapPizzaCategoryButton() {
         delegate?.handleActionForPizzaCategoryButton(for: FoodListViewController())

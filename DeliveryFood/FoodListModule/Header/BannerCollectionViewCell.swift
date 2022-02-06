@@ -12,10 +12,12 @@ struct BannerCollectionViewCellViewModel {
 }
 
 class BannerCollectionViewCell: UICollectionViewCell {
+    // MARK: - Properties
     static let identifier = "collectionCell"
     
     var imageView = UIImageView()
     
+    // MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -32,13 +34,17 @@ class BannerCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        imageView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        imageView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        imageView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.leftAnchor.constraint(equalTo: leftAnchor),
+            imageView.rightAnchor.constraint(equalTo: rightAnchor),
+            imageView.heightAnchor.constraint(equalTo: heightAnchor)
+        ])
     }
     
+    // MARK: - Configure method
     func configure(with viewModel: BannerCollectionViewCellViewModel) {
         imageView.image = viewModel.image
     }

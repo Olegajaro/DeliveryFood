@@ -12,7 +12,7 @@ protocol FoodListViewProtocol: AnyObject {
 }
 
 protocol FoodListPresenterProtocol: AnyObject {
-    var allDishes: [AllDishes]? { get set }
+    var allDishes: [Dish]? { get set }
     init(view: FoodListViewController, dataFetcherService: DataFetcherService)
     func fetchData()
 }
@@ -21,10 +21,10 @@ class FoodListPresenter: FoodListPresenterProtocol {
     weak var view: FoodListViewController?
     let dataFetcherService: DataFetcherService!
     
-    var allDishes: [AllDishes]?
+    var allDishes: [Dish]?
     
     private var pizzas: Pizza?
-    private var vegiFoods: VegetarianDishes?
+    private var vegiFoods: VegetarianDish?
     private var seaFoods: SeaFood?
     
     required init(view: FoodListViewController,
@@ -37,33 +37,47 @@ class FoodListPresenter: FoodListPresenterProtocol {
     func fetchData() {
         let group = DispatchGroup()
         
+        fetchPizzas(group: group)
+        fetchVegiDishes(group: group)
+        fetchSeaFoods(group: group)
+
+        group.notify(queue: .main) {
+            self.notifyAction()
+        }
+    }
+    
+    private func fetchPizzas(group: DispatchGroup) {
         group.enter()
         dataFetcherService.fetchPizzas { pizzas in
             self.pizzas = pizzas
             group.leave()
         }
-        
+    }
+    
+    private func fetchVegiDishes(group: DispatchGroup) {
         group.enter()
         dataFetcherService.fetchVegiDishes { vegiFoods in
             self.vegiFoods = vegiFoods
             group.leave()
         }
-        
+    }
+    
+    private func fetchSeaFoods(group: DispatchGroup) {
         group.enter()
         dataFetcherService.fetchSeaFoods { seaFoods in
             self.seaFoods = seaFoods
             group.leave()
         }
+    }
+    
+    private func notifyAction() {
+        guard
+            let pizzaData = self.pizzas?.data,
+            let vegiData = self.vegiFoods?.data,
+            let seaFoodData = self.seaFoods?.data
+        else { return }
         
-        group.notify(queue: .main) {
-            guard
-                let pizzaData = self.pizzas?.data,
-                let vegiData = self.vegiFoods?.data,
-                let seaFoodData = self.seaFoods?.data
-            else { return }
-            
-            self.allDishes = pizzaData + vegiData + seaFoodData
-            self.view?.success()
-        }
+        self.allDishes = pizzaData + vegiData + seaFoodData
+        self.view?.success()
     }
 }

@@ -10,6 +10,7 @@ import SDWebImage
 
 class DishCell: UITableViewCell {
     
+    // MARK: - Properties
     let dishImage = UIImageView()
     let stackView = UIStackView()
     let dishNameLabel = UILabel()
@@ -18,6 +19,7 @@ class DishCell: UITableViewCell {
     static let reuseID = "DishCell"
     static let rowHeight: CGFloat = 250
     
+    // MARK: - Lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -34,14 +36,17 @@ class DishCell: UITableViewCell {
         layout()
     }
     
-    func configure(with dish: AllDishes) {
+    // MARK: - Configure method
+    func configure(with dish: Dish) {
         dishImage.sd_setImage(with: dish.image)
         dishNameLabel.text = dish.name
         dishDescriptionLabel.text = dish.datumDescription
     }
 }
 
+
 extension DishCell {
+    // MARK: - SetupViews
     private func setupViews() {
         dishImage.translatesAutoresizingMaskIntoConstraints = false
         dishImage.contentMode = .scaleAspectFill
@@ -65,6 +70,7 @@ extension DishCell {
         dishDescriptionLabel.adjustsFontSizeToFitWidth = true
     }
     
+    // MARK: - Layout
     private func layout() {
         contentView.addSubview(dishImage)
         
@@ -72,6 +78,7 @@ extension DishCell {
         stackView.addArrangedSubview(dishDescriptionLabel)
         contentView.addSubview(stackView)
         
+        // dishImage constraint
         NSLayoutConstraint.activate([
             dishImage.centerYAnchor.constraint(
                 equalTo: centerYAnchor
@@ -83,6 +90,7 @@ extension DishCell {
             dishImage.widthAnchor.constraint(equalTo: dishImage.heightAnchor)
         ])
         
+        // stackView constraint
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(
                 equalToSystemSpacingBelow: topAnchor, multiplier: 2

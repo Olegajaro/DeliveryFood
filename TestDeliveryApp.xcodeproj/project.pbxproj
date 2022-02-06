@@ -17,7 +17,7 @@
 		107888A027AEA1D40034454C /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1078889F27AEA1D40034454C /* FoodListViewController.swift */; };
 		107888A327AEA5A60034454C /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107888A227AEA5A60034454C /* UIViewController+Extensions.swift */; };
 		10B318CB27AEA9A600517567 /* Pizza.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B318CA27AEA9A600517567 /* Pizza.swift */; };
-		10B318CD27AEA9E100517567 /* VegetarianDishes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B318CC27AEA9E100517567 /* VegetarianDishes.swift */; };
+		10B318CD27AEA9E100517567 /* VegetarianDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B318CC27AEA9E100517567 /* VegetarianDish.swift */; };
 		10B318CF27AEAADC00517567 /* SeaFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B318CE27AEAADC00517567 /* SeaFood.swift */; };
 		10B318D727AEAD2700517567 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B318D627AEAD2700517567 /* NetworkService.swift */; };
 		10B318D927AEAD4300517567 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B318D827AEAD4300517567 /* NetworkDataFetcher.swift */; };
@@ -41,7 +41,7 @@
 		1078889F27AEA1D40034454C /* FoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = "<group>"; };
 		107888A227AEA5A60034454C /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		10B318CA27AEA9A600517567 /* Pizza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pizza.swift; sourceTree = "<group>"; };
-		10B318CC27AEA9E100517567 /* VegetarianDishes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegetarianDishes.swift; sourceTree = "<group>"; };
+		10B318CC27AEA9E100517567 /* VegetarianDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegetarianDish.swift; sourceTree = "<group>"; };
 		10B318CE27AEAADC00517567 /* SeaFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeaFood.swift; sourceTree = "<group>"; };
 		10B318D627AEAD2700517567 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		10B318D827AEAD4300517567 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				10B318CA27AEA9A600517567 /* Pizza.swift */,
-				10B318CC27AEA9E100517567 /* VegetarianDishes.swift */,
+				10B318CC27AEA9E100517567 /* VegetarianDish.swift */,
 				10B318CE27AEAADC00517567 /* SeaFood.swift */,
 			);
 			path = Models;
@@ -305,7 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10B318CD27AEA9E100517567 /* VegetarianDishes.swift in Sources */,
+				10B318CD27AEA9E100517567 /* VegetarianDish.swift in Sources */,
 				10B318DF27AED62C00517567 /* DishCell.swift in Sources */,
 				10B318E127AEE10B00517567 /* FoodListHeaderView.swift in Sources */,
 				10B318CF27AEAADC00517567 /* SeaFood.swift in Sources */,
