@@ -11,7 +11,6 @@ let pizzasURL = "https://yummie.glitch.me//dishes/cat2"
 let vegiURL = "https://yummie.glitch.me//dishes/cat5"
 let seaFoodURL = "https://yummie.glitch.me//dishes/cat4"
 
-
 class DataFetcherService {
     
     var networkDataFetcher: NetworkDataFetcher!

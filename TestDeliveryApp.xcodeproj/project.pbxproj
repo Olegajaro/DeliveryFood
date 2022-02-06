@@ -25,6 +25,7 @@
 		10B318DF27AED62C00517567 /* DishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B318DE27AED62C00517567 /* DishCell.swift */; };
 		10B318E127AEE10B00517567 /* FoodListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B318E027AEE10B00517567 /* FoodListHeaderView.swift */; };
 		10B318E327AEE7F000517567 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B318E227AEE7F000517567 /* BannerCollectionViewCell.swift */; };
+		10B9264227B026B500A1A6BB /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B9264127B026B500A1A6BB /* UITableView+Extensions.swift */; };
 		C767E4384C5AC2C5A1B7372E /* Pods_TestDeliveryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9BF192D2D795302904855D6 /* Pods_TestDeliveryApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		10B318DE27AED62C00517567 /* DishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCell.swift; sourceTree = "<group>"; };
 		10B318E027AEE10B00517567 /* FoodListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListHeaderView.swift; sourceTree = "<group>"; };
 		10B318E227AEE7F000517567 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		10B9264127B026B500A1A6BB /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		293EEC06DA7B3CD296C16A51 /* Pods-TestDeliveryApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDeliveryApp.release.xcconfig"; path = "Target Support Files/Pods-TestDeliveryApp/Pods-TestDeliveryApp.release.xcconfig"; sourceTree = "<group>"; };
 		5B88B6A040BA442E6D7536A6 /* Pods-TestDeliveryApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDeliveryApp.debug.xcconfig"; path = "Target Support Files/Pods-TestDeliveryApp/Pods-TestDeliveryApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F9BF192D2D795302904855D6 /* Pods_TestDeliveryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestDeliveryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				107888A227AEA5A60034454C /* UIViewController+Extensions.swift */,
+				10B9264127B026B500A1A6BB /* UITableView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				1078888D27AE8FE10034454C /* MainViewController.swift in Sources */,
 				1078888927AE8FE10034454C /* AppDelegate.swift in Sources */,
 				10B318DB27AEAD5F00517567 /* DataFetcherService.swift in Sources */,
+				10B9264227B026B500A1A6BB /* UITableView+Extensions.swift in Sources */,
 				10B318CB27AEA9A600517567 /* Pizza.swift in Sources */,
 				10B318D927AEAD4300517567 /* NetworkDataFetcher.swift in Sources */,
 				104D6A4527AFB1E800DBFB9C /* FoodListSectionHeader.swift in Sources */,

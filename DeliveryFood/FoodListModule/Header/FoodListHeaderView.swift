@@ -18,7 +18,8 @@ class FoodListHeaderView: UIView {
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16,
+                                           bottom: 0, right: 16)
         
         let collectionView = UICollectionView(
             frame: .zero,

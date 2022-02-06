@@ -15,6 +15,8 @@ protocol FoodListPresenterProtocol: AnyObject {
     var allDishes: [Dish]? { get set }
     init(view: FoodListViewController, dataFetcherService: DataFetcherService)
     func fetchData()
+    func numberOfRows() -> Int
+    func setDishForCell(with indexPath: IndexPath) -> Dish?
 }
 
 class FoodListPresenter: FoodListPresenterProtocol {
@@ -46,26 +48,34 @@ class FoodListPresenter: FoodListPresenterProtocol {
         }
     }
     
+    func numberOfRows() -> Int {
+        allDishes?.count ?? 0
+    }
+    
+    func setDishForCell(with indexPath: IndexPath) -> Dish? {
+        return allDishes?[indexPath.row]
+    }
+    
     private func fetchPizzas(group: DispatchGroup) {
         group.enter()
-        dataFetcherService.fetchPizzas { pizzas in
-            self.pizzas = pizzas
+        dataFetcherService.fetchPizzas { [weak self] pizzas in
+            self?.pizzas = pizzas
             group.leave()
         }
     }
     
     private func fetchVegiDishes(group: DispatchGroup) {
         group.enter()
-        dataFetcherService.fetchVegiDishes { vegiFoods in
-            self.vegiFoods = vegiFoods
+        dataFetcherService.fetchVegiDishes { [weak self] vegiFoods in
+            self?.vegiFoods = vegiFoods
             group.leave()
         }
     }
     
     private func fetchSeaFoods(group: DispatchGroup) {
         group.enter()
-        dataFetcherService.fetchSeaFoods { seaFoods in
-            self.seaFoods = seaFoods
+        dataFetcherService.fetchSeaFoods { [weak self] seaFoods in
+            self?.seaFoods = seaFoods
             group.leave()
         }
     }

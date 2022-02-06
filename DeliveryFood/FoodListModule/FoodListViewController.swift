@@ -44,10 +44,14 @@ extension FoodListViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.register(DishCell.self,
-                           forCellReuseIdentifier: DishCell.reuseID)
-        tableView.register(FoodListSectionHeader.self,
-                           forHeaderFooterViewReuseIdentifier: FoodListSectionHeader.identifier)
+        tableView.register(
+            DishCell.self,
+            forCellReuseIdentifier: DishCell.reuseID
+        )
+        tableView.register( 
+            FoodListSectionHeader.self,
+            forHeaderFooterViewReuseIdentifier: FoodListSectionHeader.identifier
+        )
         tableView.rowHeight = DishCell.rowHeight
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -89,6 +93,17 @@ extension FoodListViewController {
 
 // MARK: - UITableViewDataSource
 extension FoodListViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
+        presenter.numberOfRows()
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   heightForHeaderInSection section: Int) -> CGFloat {
+        60
+    }
+    
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
         let headerSection = tableView.dequeueReusableHeaderFooterView(
@@ -96,16 +111,8 @@ extension FoodListViewController: UITableViewDataSource {
         ) as? FoodListSectionHeader
         headerSection?.delegate = self
         
+        
         return headerSection
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        60
-    }
-    
-    func tableView(_ tableView: UITableView,
-                   numberOfRowsInSection section: Int) -> Int {
-        presenter.allDishes?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView,
@@ -116,10 +123,10 @@ extension FoodListViewController: UITableViewDataSource {
             for: indexPath
         ) as! DishCell
         
-        if let dish = presenter.allDishes?[indexPath.row] {
+        if let dish = presenter.setDishForCell(with: indexPath) {
             cell.configure(with: dish)
         }
-
+        
         return cell
     }
 }
@@ -133,6 +140,16 @@ extension FoodListViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - FoodListSectionHeaderDelegate
+extension FoodListViewController: FoodListSectionHeaderDelegate {
+    func handleActionForPizzaCategoryButton(for controller: FoodListViewController) {
+        let tableView = controller.tableView
+        
+        print("DEBUG: \(tableView.numberOfRows(inSection: tableView.numberOfSections - 1))")
+        print("DEBUG: pizza")
+    }
+}
+
 // MARK: - FoodListViewProtocol
 extension FoodListViewController: FoodListViewProtocol {
     func success() {
@@ -141,15 +158,4 @@ extension FoodListViewController: FoodListViewProtocol {
     }
 }
 
-// MARK: - FoodListSectionHeaderDelegate
-extension FoodListViewController: FoodListSectionHeaderDelegate {
-    func handleActionForPizzaCategoryButton(for controller: FoodListViewController) {
-        let selectedRows = controller.tableView.indexPathsForSelectedRows
-        if let selectedRow = selectedRows?[10] {
-            controller.tableView.scrollToRow(at: selectedRow, at: .middle, animated: true)
-        }
-        print("DEBUG: pizza")
-        
-        controller.tableView.isHidden = true
-    }
-}
+
