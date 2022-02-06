@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DishCell: UITableViewCell {
     
@@ -21,19 +22,20 @@ class DishCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupViews()
-        layout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with dish: AllDishes) {
-        guard
-            let imageData = ImageManager.fetchImage(fromURL: dish.image)
-        else { return }
+    override func layoutSubviews() {
+        super.layoutSubviews()
         
-        dishImage.image = UIImage(data: imageData)
+        layout()
+    }
+    
+    func configure(with dish: AllDishes) {
+        dishImage.sd_setImage(with: dish.image)
         dishNameLabel.text = dish.name
         dishDescriptionLabel.text = dish.datumDescription
     }
