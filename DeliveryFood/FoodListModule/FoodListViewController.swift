@@ -9,21 +9,13 @@ import Foundation
 
 import UIKit
 
-private let cellID = "Cell"
-
 class FoodListViewController: UIViewController {
     
     let tableView = UITableView()
     var activityIndicator: UIActivityIndicatorView?
     
-    let dataFetcherService = DataFetcherService()
-    
-    var allDishes: [AllDishes]?
-    
-    var pizzas: Pizza?
-    var vegiFoods: VegetarianDishes?
-    var seaFoods: SeaFood?
-    
+    var presenter: FoodListPresenterProtocol!
+        
     private let viewModel: FoodListHeaderViewModel = FoodListHeaderViewModel(
         viewModels: [
             BannerCollectionViewCellViewModel(image: UIImage(named: "banner1")!),
@@ -36,50 +28,15 @@ class FoodListViewController: UIViewController {
         super.viewDidLoad()
         
         setupNavigationItem()
-        setup()
+        setupTableView()
         setupTableViewHeader()
-        fetchData()
         activityIndicator = showActivityIndicator(in: view)
-    }
-    
-    private func fetchData() {
-        let group = DispatchGroup()
-        
-        group.enter()
-        dataFetcherService.fetchPizzas { pizzas in
-            self.pizzas = pizzas
-            group.leave()
-        }
-        
-        group.enter()
-        dataFetcherService.fetchVegiDishes { vegiFoods in
-            self.vegiFoods = vegiFoods
-            group.leave()
-        }
-        
-        group.enter()
-        dataFetcherService.fetchSeaFoods { seaFoods in
-            self.seaFoods = seaFoods
-            group.leave()
-        }
-        
-        group.notify(queue: .main) {
-            guard
-                let pizzaData = self.pizzas?.data,
-                let vegiData = self.vegiFoods?.data,
-                let seaFoodData = self.seaFoods?.data
-            else { return }
-            
-            self.allDishes = pizzaData + vegiData + seaFoodData
-            self.tableView.reloadData()
-            self.activityIndicator?.stopAnimating()
-        }
     }
 }
 
 // MARK: - Setup Table View
 extension FoodListViewController {
-    private func setup() {
+    private func setupTableView() {
         tableView.backgroundColor = .systemBackground
         tableView.delegate = self
         tableView.dataSource = self
@@ -134,6 +91,7 @@ extension FoodListViewController: UITableViewDataSource {
         let headerSection = tableView.dequeueReusableHeaderFooterView(
             withIdentifier: FoodListSectionHeader.identifier
         ) as? FoodListSectionHeader
+        headerSection?.delegate = self
         
         return headerSection
     }
@@ -144,7 +102,7 @@ extension FoodListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        allDishes?.count ?? 0
+        presenter.allDishes?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView,
@@ -155,7 +113,7 @@ extension FoodListViewController: UITableViewDataSource {
             for: indexPath
         ) as! DishCell
         
-        if let dish = allDishes?[indexPath.row] {
+        if let dish = presenter.allDishes?[indexPath.row] {
             cell.configure(with: dish)
         }
 
@@ -169,5 +127,24 @@ extension FoodListViewController: UITableViewDelegate {
                    didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension FoodListViewController: FoodListViewProtocol {
+    func success() {
+        tableView.reloadData()
+        activityIndicator?.stopAnimating()
+    }
+}
+
+extension FoodListViewController: FoodListSectionHeaderDelegate {
+    func handleActionForPizzaCategoryButton(for controller: FoodListViewController) {
+        let selectedRows = controller.tableView.indexPathsForSelectedRows
+        if let selectedRow = selectedRows?[10] {
+            controller.tableView.scrollToRow(at: selectedRow, at: .middle, animated: true)
+        }
+        print("DEBUG: pizza")
+        
+        controller.tableView.isHidden = true
     }
 }

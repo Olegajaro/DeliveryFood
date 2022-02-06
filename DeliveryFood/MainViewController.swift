@@ -11,18 +11,18 @@ private let cellID = "Cell"
 
 class MainViewController: UITabBarController {
     
-    let tableView = UITableView()
-    let numbers = [1, 2, 3, 4]
+    var assembly: AssemblyProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupViews()
+        assembly = Assembly()
         setupTabBar()
+        setupViews()
     }
     
     private func setupViews() {
-        let foodListVC = FoodListViewController()
+        guard let foodListVC = assembly?.createFoodListModule() else { return }
         let contactsVC = ContactsViewController()
         let profileVC = ProfileViewController()
         let basketVC = BasketViewController()

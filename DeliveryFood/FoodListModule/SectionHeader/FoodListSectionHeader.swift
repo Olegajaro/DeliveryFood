@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol FoodListSectionHeaderDelegate: AnyObject {
+    func handleActionForPizzaCategoryButton(for controller: FoodListViewController)
+}
+
 class FoodListSectionHeader: UITableViewHeaderFooterView {
     static let identifier = "FoodListSectionHeader"
     
@@ -16,6 +20,7 @@ class FoodListSectionHeader: UITableViewHeaderFooterView {
     let seaFoodCategoryButton = UIButton(type: .system)
     
     private let buttonHeight: CGFloat = 30
+    weak var delegate: FoodListSectionHeaderDelegate?
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -72,6 +77,11 @@ class FoodListSectionHeader: UITableViewHeaderFooterView {
         pizzaCategoryButton.setTitleColor(.white, for: .normal)
         pizzaCategoryButton.backgroundColor = .lightGray
         pizzaCategoryButton.layer.cornerRadius = buttonHeight / 2
+        pizzaCategoryButton.addTarget(
+            self,
+            action: #selector(didTapPizzaCategoryButton),
+            for: .touchUpInside
+        )
         
         vegiCategoryButton.translatesAutoresizingMaskIntoConstraints = false
         vegiCategoryButton.setTitle("Vegetarian", for: .normal)
@@ -84,6 +94,12 @@ class FoodListSectionHeader: UITableViewHeaderFooterView {
         seaFoodCategoryButton.setTitleColor(.white, for: .normal)
         seaFoodCategoryButton.backgroundColor = .lightGray
         seaFoodCategoryButton.layer.cornerRadius = buttonHeight / 2
+    }
+}
+
+extension FoodListSectionHeader {
+    @objc func didTapPizzaCategoryButton() {
+        delegate?.handleActionForPizzaCategoryButton(for: FoodListViewController())
     }
 }
 
