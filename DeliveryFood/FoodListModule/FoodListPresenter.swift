@@ -15,6 +15,8 @@ protocol FoodListPresenterProtocol: AnyObject {
     init(view: FoodListViewController, dataFetcherService: DataFetcherService)
     func fetchData()
     func numberOfRows() -> Int
+    func vegiFoodStartIndex() -> Int
+    func seaFoodStartIndex() -> Int
     func dishCellViewModel(
         forIndexPath indexPath: IndexPath
     ) -> DishCellViewModelProtocol?
@@ -24,7 +26,7 @@ class FoodListPresenter: FoodListPresenterProtocol {
     weak var view: FoodListViewController?
     let dataFetcherService: DataFetcherService!
     
-    private var allDishes: [Dish]?
+    var allDishes: [Dish]?
     
     private var pizzas: Pizza?
     private var vegiFoods: VegetarianDish?
@@ -53,6 +55,18 @@ class FoodListPresenter: FoodListPresenterProtocol {
         allDishes?.count ?? 0
     }
     
+    func vegiFoodStartIndex() -> Int {
+        vegiFoods?.data.count ?? 0
+    }
+    
+    func seaFoodStartIndex() -> Int {
+        guard
+            let totalCount = allDishes?.count,
+            let vegiFoodCount = vegiFoods?.data.count
+        else { return 0 }
+        
+        return totalCount - vegiFoodCount
+    }
     
     func dishCellViewModel(
         forIndexPath indexPath: IndexPath

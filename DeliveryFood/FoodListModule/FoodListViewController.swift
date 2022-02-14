@@ -141,13 +141,27 @@ extension FoodListViewController: UITableViewDelegate {
 
 // MARK: - FoodListSectionHeaderDelegate
 extension FoodListViewController: FoodListSectionHeaderDelegate {
-    func handleActionForPizzaCategoryButton(
-        for controller: FoodListViewController
-    ) {
-        let tableView = controller.tableView
-        
-        print("DEBUG: \(tableView.numberOfRows(inSection: tableView.numberOfSections - 1))")
-        print("DEBUG: pizza")
+    func handleActionForPizzaCategoryButton() {
+        didScrollToRowWithIndex(0)
+    }
+    
+    func handleActionForVegiCategoryButton() {
+        didScrollToRowWithIndex(presenter.vegiFoodStartIndex())
+    }
+    
+    func handleActionForSeaFoodCategoryButton() {
+        didScrollToRowWithIndex(presenter.seaFoodStartIndex())
+    }
+    
+    private func didScrollToRowWithIndex(_ index: Int) {
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(
+                row: index,
+                section: 0
+            )
+            
+            self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        }
     }
 }
 
